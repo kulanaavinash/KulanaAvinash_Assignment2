@@ -148,6 +148,8 @@ public class Main
             while ((row = br.readLine()) != null) {
                 values.add(row);
             }
+            //calling menu method and take two parameters as values and obj
+            menu(values, obj);
 
         } catch (IOException e) {
             System.err.println("Error reading the file: " + e.getMessage());
