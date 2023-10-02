@@ -154,5 +154,32 @@ public class Main
         }
 
     }
+    // Method to display the main menu 
+    static void menu(List<String> values, StudentsStatistics obj) {
+        Scanner sc = new Scanner(System.in);
 
+        List<Student> studentsList = new ArrayList<>();
+        studentsList = obj.initializeData(values);
+        if (!studentsList.isEmpty()) {
+            System.out.println("\nThis file contains the marks of " + studentsList.get(0).getUnitName());
+        }
+        System.out.println("\nYou can choose an option from the menu below:");
+
+        int option = 0;
+        while (option != 5) {
+            System.out.println(
+                "\n----------------------Welcome to the Student marks management System-------------------------");
+            System.out.println("-----------------------------------------------------");
+
+            System.out.println("\n1. Read students data");
+            System.out.println("2. Calculate the total marks for each student");
+            System.out.println("3. List the students with total marks less than a certain threshold");
+            System.out.println("4. Show five students with the highest and lowest marks");
+            System.out.println("5. Exit the program");
+            System.out.print("\nPlease enter your choice (1-5): ");
+
+            option = sc.nextInt();
+
+        }
+    }
 }
