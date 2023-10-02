@@ -199,87 +199,98 @@ class StudentsStatistics
             System.out.println("Total Mark: " + totalMarks);
             System.out.println();
         }
-    }
-    public class Main
-    {
-        public static void main(String[] args) {
-            System.out.println("##----System For Compute Statistic of Students----##");
-            Scanner sc = new Scanner(System.in);
-            System.out.println("\nPlease enter the file name:");
-            String fileName = sc.next();
-            StudentsStatistics obj = new StudentsStatistics();
-
-            List<String> values = new ArrayList<>();
-            String row;
-            try {
-                File csvFile = new File("D:\\" + fileName);
-                FileReader fileReader = new FileReader(csvFile);
-                BufferedReader br = new BufferedReader(fileReader);
-
-                while ((row = br.readLine()) != null) {
-                    values.add(row);
-                }
-                //calling menu method and take two parameters as values and obj
-                menu(values, obj);
-
-            } catch (IOException e) {
-                System.err.println("Error reading the file: " + e.getMessage());
-            }
-
-        }
-        // Method to display the main menu 
-        static void menu(List<String> values, StudentsStatistics obj) {
-            Scanner sc = new Scanner(System.in);
-
-            List<Student> studentsList = new ArrayList<>();
-            studentsList = obj.initializeData(values);
-            if (!studentsList.isEmpty()) {
-                System.out.println("\nThis file contains the marks of " + studentsList.get(0).getUnitName());
-            }
-            System.out.println("\nYou can choose an option from the menu below:");
-            try {
-                int option = 0;
-                while (option != 5) {
-                    System.out.println(
-                        "\n----------------------Welcome to the Student marks management System-------------------------");
-                    System.out.println("-----------------------------------------------------");
-
-                    System.out.println("\n1. Read students data");
-                    System.out.println("2. Calculate the total marks for each student");
-                    System.out.println("3. List the students with total marks less than a certain threshold");
-                    System.out.println("4. Show five students with the highest and lowest marks");
-                    System.out.println("5. Exit the program");
-                    System.out.print("\nPlease enter your choice (1-5): ");
-
-                    option = sc.nextInt();
-                    switch (option) {
-                        case 1:
-                            obj.readFromFile(studentsList);
-                            continue;
-                        case 2:
-                            obj.calculateTotalMarks(studentsList);
-                            continue;
-                        case 3:
-                            System.out.print("Enter the threshold value: ");
-                            double threshold = sc.nextDouble();
-                            obj.listStudentsBelowThreshold(threshold, studentsList);
-                            continue;
-                        case 4:
-                            obj.showStudentsWithLowestAndHighestMarks(studentsList);
-                            continue;
-                        case 5:
-                            System.out.println("Exit the program.");
-                            System.exit(0);
-                        default:
-                            System.out.println("Invalid option entered.");
-
-                    }
-                }
-            } catch (InputMismatchException e) {
-                System.out.println("Invalid option entered.");
-                System.out.println("Please select an option from the menu and enter a number from 1 to 5.");
-                menu(values, obj);
-            }
+        System.out.println("-----------Top 5 Lowest Mark Students---------------");
+        System.out.println("-----------***************************--------------");
+        System.out.println();
+        for (int i = 0; i < Math.min(5, n); i++) {
+            Student student = students.get(i);
+            double totalMarks = student.calculateTotalMarks();
+            System.out.println("Name: " + student.getFirstName() + " " + student.getLastName());
+            System.out.println("Total Mark: " + totalMarks);
+            System.out.println();
         }
     }
+}
+public class Main
+{
+    public static void main(String[] args) {
+        System.out.println("##----System For Compute Statistic of Students----##");
+        Scanner sc = new Scanner(System.in);
+        System.out.println("\nPlease enter the file name:");
+        String fileName = sc.next();
+        StudentsStatistics obj = new StudentsStatistics();
+
+        List<String> values = new ArrayList<>();
+        String row;
+        try {
+            File csvFile = new File("D:\\" + fileName);
+            FileReader fileReader = new FileReader(csvFile);
+            BufferedReader br = new BufferedReader(fileReader);
+
+            while ((row = br.readLine()) != null) {
+                values.add(row);
+            }
+            //calling menu method and take two parameters as values and obj
+            menu(values, obj);
+
+        } catch (IOException e) {
+            System.err.println("Error reading the file: " + e.getMessage());
+        }
+
+    }
+    // Method to display the main menu 
+    static void menu(List<String> values, StudentsStatistics obj) {
+        Scanner sc = new Scanner(System.in);
+
+        List<Student> studentsList = new ArrayList<>();
+        studentsList = obj.initializeData(values);
+        if (!studentsList.isEmpty()) {
+            System.out.println("\nThis file contains the marks of " + studentsList.get(0).getUnitName());
+        }
+        System.out.println("\nYou can choose an option from the menu below:");
+        try {
+            int option = 0;
+            while (option != 5) {
+                System.out.println(
+                    "\n----------------------Welcome to the Student marks management System-------------------------");
+                System.out.println("-----------------------------------------------------");
+
+                System.out.println("\n1. Read students data");
+                System.out.println("2. Calculate the total marks for each student");
+                System.out.println("3. List the students with total marks less than a certain threshold");
+                System.out.println("4. Show five students with the highest and lowest marks");
+                System.out.println("5. Exit the program");
+                System.out.print("\nPlease enter your choice (1-5): ");
+
+                option = sc.nextInt();
+                switch (option) {
+                    case 1:
+                        obj.readFromFile(studentsList);
+                        continue;
+                    case 2:
+                        obj.calculateTotalMarks(studentsList);
+                        continue;
+                    case 3:
+                        System.out.print("Enter the threshold value: ");
+                        double threshold = sc.nextDouble();
+                        obj.listStudentsBelowThreshold(threshold, studentsList);
+                        continue;
+                    case 4:
+                        obj.showStudentsWithLowestAndHighestMarks(studentsList);
+                        continue;
+                    case 5:
+                        System.out.println("Exit the program.");
+                        System.exit(0);
+                    default:
+                        System.out.println("Invalid option entered.");
+
+                }
+            }
+        } catch (InputMismatchException e) {
+            System.out.println("Invalid option entered.");
+            System.out.println("Please select an option from the menu and enter a number from 1 to 5.");
+            menu(values, obj);
+        }
+    }
+}
 
