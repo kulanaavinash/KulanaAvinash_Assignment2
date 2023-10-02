@@ -87,6 +87,7 @@ class Student
 }
 class StudentsStatistics
 {
+    // Method to initialize student data from a list of strings
     List<Student> initializeData(List<String> data){
         List<Student> studentList = new ArrayList<>();
 		String unitName = "";
