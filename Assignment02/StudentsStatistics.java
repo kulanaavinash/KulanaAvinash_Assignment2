@@ -11,7 +11,8 @@ import java.util.Scanner;
  * @author (Kulana Avinash Welihena Vithanage)
  * @version (version 1.0 28/09/2023)
  */
-public class StudentsStatistics
+
+class StudentsStatistics
 {
     public static void main(String[] args) {
         String csvFile = "prog5001_students_grade_2022.csv";

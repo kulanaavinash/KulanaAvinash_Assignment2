@@ -1,6 +1,6 @@
 #BlueJ class context
 comment0.target=StudentsStatistics
-comment0.text=\r\n\ Write\ a\ description\ of\ class\ StudentsStatistics\ here.\r\n\r\n\ @author\ (your\ name)\r\n\ @version\ (a\ version\ number\ or\ a\ date)\r\n
+comment0.text=\r\n\ This\ is\ a\ program\ to\ compute\ statistics\ of\ students\ marks\ in\ an\ assignment.\r\n\r\n\ @author\ (Kulana\ Avinash\ Welihena\ Vithanage)\r\n\ @version\ (version\ 1.0\ 28/09/2023)\r\n
 comment1.params=args
 comment1.target=void\ main(java.lang.String[])
 comment2.params=
