@@ -162,6 +162,22 @@ class StudentsStatistics
             System.out.println();
         }
     }
+    // Method to list students with total marks below a threshold
+    void listStudentsBelowThreshold(double threshold, List<Student> students) {
+        int count = 0;
+
+        for (Student student : students) {
+            double totalMarks = student.calculateTotalMarks();
+            if (totalMarks < threshold) {
+                count++;
+                System.out.println("Name: " + student.getFirstName() + " " + student.getLastName());
+            }
+        }
+
+        if (count == 0) {
+            System.out.println("No students scored below the threshold.");
+        }
+    }
     public class Main
     {
         public static void main(String[] args) {
