@@ -13,13 +13,18 @@ import java.util.Scanner;
  */
 class Student
 {
-
+    private String firstName;
+    private String lastName;
+    private String unitName;
+    private String studentId;
+    private double a1;
+    private double a2;
+    private double a3;
 }
 class StudentsStatistics
 {
 
 }
-
 
 public class Main
 {
