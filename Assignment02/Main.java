@@ -11,6 +11,8 @@ import java.util.Scanner;
  * @author (Kulana Avinash Welihena Vithanage)
  * @version (version 1.0 28/09/2023)
  */
+
+// Define the Student class to store student information
 class Student
 {
     private String firstName;
