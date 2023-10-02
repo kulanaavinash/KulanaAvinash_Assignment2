@@ -5,6 +5,8 @@ import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
 import java.util.Scanner;
+import java.io.File;
+
 /**
  * This is a program to compute statistics of students marks in an assignment.
  *
@@ -85,13 +87,18 @@ class Student
 }
 class StudentsStatistics
 {
-
+    List<Student> initializeData(List<String> data){
+        List<Student> studentList = new ArrayList<>();
+		String unitName = "";
+		return studentList;
+    }
+    
 }
 
 public class Main
 {
     public static void main(String[] args) {
-
+       
     }
 
 }
