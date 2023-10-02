@@ -1,4 +1,4 @@
-# PROG5001: 
+# PROG5001 Assessment2: 
 FUNDAMENTALS OF PROGRAMMING
 
 Develop a simple program to compute statistics of students' marks in an assignment
