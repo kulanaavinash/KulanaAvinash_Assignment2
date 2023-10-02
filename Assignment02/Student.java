@@ -209,6 +209,11 @@ class StudentsStatistics
                     case 4:
                         obj.showStudentsWithLowestAndHighestMarks(studentsList);
                         continue;
+                    case 5:
+                        System.out.println("Exit the program.");
+                        System.exit(0);
+                    default:
+                        System.out.println("Invalid option entered.");
 
                 }
             }
