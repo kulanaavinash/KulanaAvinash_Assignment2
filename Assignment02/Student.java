@@ -84,9 +84,29 @@ class Student
     public void setA3(double a3) {
         this.a3 = a3;
     }
+
+    // Calculate and return the total marks for the student
+    public double calculateTotalMarks() {
+        return a1 + a2 + a3;
+    }
 }
+
 class StudentsStatistics
 {
+    // Method to calculate and display total marks for each student
+    void calculateTotalMarks(List<Student> students) {
+        for (Student student : students) {
+            System.out.println("Name: " + student.getFirstName() + " " + student.getLastName());
+            System.out.println("Student Id: " + student.getStudentId());
+            System.out.println("A1: " + student.getA1());
+            System.out.println("A2: " + student.getA2());
+            System.out.println("A3: " + student.getA3());
+            double total = student.calculateTotalMarks();
+            System.out.println("Total Mark: " + total);
+            System.out.println();
+        }
+
+    }
     // Method to initialize student data from a list of strings
     List<Student> initializeData(List<String> data){
         List<Student> studentList = new ArrayList<>();
@@ -179,43 +199,49 @@ class StudentsStatistics
                 System.out.println("\nThis file contains the marks of " + studentsList.get(0).getUnitName());
             }
             System.out.println("\nYou can choose an option from the menu below:");
+            try {
+                int option = 0;
+                while (option != 5) {
+                    System.out.println(
+                        "\n----------------------Welcome to the Student marks management System-------------------------");
+                    System.out.println("-----------------------------------------------------");
 
-            int option = 0;
-            while (option != 5) {
-                System.out.println(
-                    "\n----------------------Welcome to the Student marks management System-------------------------");
-                System.out.println("-----------------------------------------------------");
+                    System.out.println("\n1. Read students data");
+                    System.out.println("2. Calculate the total marks for each student");
+                    System.out.println("3. List the students with total marks less than a certain threshold");
+                    System.out.println("4. Show five students with the highest and lowest marks");
+                    System.out.println("5. Exit the program");
+                    System.out.print("\nPlease enter your choice (1-5): ");
 
-                System.out.println("\n1. Read students data");
-                System.out.println("2. Calculate the total marks for each student");
-                System.out.println("3. List the students with total marks less than a certain threshold");
-                System.out.println("4. Show five students with the highest and lowest marks");
-                System.out.println("5. Exit the program");
-                System.out.print("\nPlease enter your choice (1-5): ");
+                    option = sc.nextInt();
+                    switch (option) {
+                        case 1:
+                            obj.readFromFile(studentsList);
+                            continue;
+                        case 2:
+                            obj.calculateTotalMarks(studentsList);
+                            continue;
+                        case 3:
+                            System.out.print("Enter the threshold value: ");
+                            double threshold = sc.nextDouble();
+                            obj.listStudentsBelowThreshold(threshold, studentsList);
+                            continue;
+                        case 4:
+                            obj.showStudentsWithLowestAndHighestMarks(studentsList);
+                            continue;
+                        case 5:
+                            System.out.println("Exit the program.");
+                            System.exit(0);
+                        default:
+                            System.out.println("Invalid option entered.");
 
-                option = sc.nextInt();
-                switch (option) {
-                    case 1:
-                        obj.readFromFile(studentsList);
-                        continue;
-                    case 2:
-                        obj.calculateTotalMarks(studentsList);
-                        continue;
-                    case 3:
-                        System.out.print("Enter the threshold value: ");
-                        double threshold = sc.nextDouble();
-                        obj.listStudentsBelowThreshold(threshold, studentsList);
-                        continue;
-                    case 4:
-                        obj.showStudentsWithLowestAndHighestMarks(studentsList);
-                        continue;
-                    case 5:
-                        System.out.println("Exit the program.");
-                        System.exit(0);
-                    default:
-                        System.out.println("Invalid option entered.");
-
+                    }
                 }
+            } catch (InputMismatchException e) {
+                System.out.println("Invalid option entered.");
+                System.out.println("Please select an option from the menu and enter a number from 1 to 5.");
+                menu(values, obj);
             }
         }
     }
+
