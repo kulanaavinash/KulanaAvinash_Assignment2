@@ -187,7 +187,7 @@ class StudentsStatistics
         }
     }
 
-    // Method to show the top 5 students with the highest marks
+    // Method to show the top 5 students with the highest marks and lowest marks
     void showStudentsWithLowestAndHighestMarks(List<Student> students) {
         students.sort((s1, s2) -> {
                     double total1 = s1.calculateTotalMarks();
