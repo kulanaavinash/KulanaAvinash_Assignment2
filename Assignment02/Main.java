@@ -254,7 +254,7 @@ public class Main
             while (option != 5) {
                 System.out.println(
                     "\n----------------------Welcome to the Student marks management System-------------------------");
-                System.out.println("-----------------------------------------------------");
+                System.out.println("-------------------------***************************----------------------------");
 
                 System.out.println("\n1. Read students data");
                 System.out.println("2. Calculate the total marks for each student");
