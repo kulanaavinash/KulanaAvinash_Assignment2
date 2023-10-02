@@ -206,6 +206,9 @@ class StudentsStatistics
                         double threshold = sc.nextDouble();
                         obj.listStudentsBelowThreshold(threshold, studentsList);
                         continue;
+                    case 4:
+                        obj.showStudentsWithLowestAndHighestMarks(studentsList);
+                        continue;
 
                 }
             }
