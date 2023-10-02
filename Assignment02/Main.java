@@ -90,16 +90,49 @@ class StudentsStatistics
     // Method to initialize student data from a list of strings
     List<Student> initializeData(List<String> data){
         List<Student> studentList = new ArrayList<>();
-		String unitName = "";
-		return studentList;
-    }
-    
-}
+        String unitName = "";
+        for (int i = 0; i < data.size(); i++) {
+            if (i == 0) {
+                unitName = data.get(0);
+            } else if (i >= 2) {
+                String[] values = data.get(i).split(",");
+                if (!values[0].startsWith("#")) {
+                    Student student = new Student();
+                    student.setFirstName(values[0]);
+                    student.setLastName(values[1]);
+                    student.setUnitName(unitName);
+                    student.setStudentId(values[2]);
 
+                    if (values.length > 3 && !values[3].isEmpty()) {
+                        student.setA1(Double.parseDouble(values[3].trim()));
+                    } else {
+                        student.setA1(0);
+                    }
+
+                    if (values.length > 4 && !values[4].isEmpty()) {
+                        student.setA2(Double.parseDouble(values[4].trim()));
+                    } else {
+                        student.setA2(0);
+                    }
+
+                    if (values.length > 5 && !values[5].isEmpty()) {
+                        student.setA3(Double.parseDouble(values[5].trim()));
+                    } else {
+                        student.setA3(0);
+                    }
+
+                    studentList.add(student);
+                }
+            }
+        }
+        return studentList;
+
+    }
+}
 public class Main
 {
     public static void main(String[] args) {
-       
+
     }
 
 }
