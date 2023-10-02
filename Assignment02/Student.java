@@ -178,6 +178,28 @@ class StudentsStatistics
             System.out.println("No students scored below the threshold.");
         }
     }
+
+    // Method to show the top 5 students with the highest marks
+    void showStudentsWithLowestAndHighestMarks(List<Student> students) {
+        students.sort((s1, s2) -> {
+                    double total1 = s1.calculateTotalMarks();
+                    double total2 = s2.calculateTotalMarks();
+                    return Double.compare(total1, total2);
+            });
+
+        System.out.println("-----------Top 5 Highest Mark Students--------------");
+        System.out.println("-----------***************************--------------");
+
+        System.out.println();
+        int n = students.size();
+        for (int i = n - 1; i >= Math.max(n - 5, 0); i--) {
+            Student student = students.get(i);
+            double totalMarks = student.calculateTotalMarks();
+            System.out.println("Name: " + student.getFirstName() + " " + student.getLastName());
+            System.out.println("Total Mark: " + totalMarks);
+            System.out.println();
+        }
+    }
     public class Main
     {
         public static void main(String[] args) {
