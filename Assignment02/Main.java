@@ -26,7 +26,7 @@ class Student
     private double a2;
     private double a3;
 
-    // Implement Getters and setters for student attributes
+    //Implement Getters and setters for student attributes
     public String getFirstName() {
         return firstName;
     }
@@ -112,12 +112,19 @@ class StudentsStatistics
     List<Student> initializeData(List<String> data){
         List<Student> studentList = new ArrayList<>();
         String unitName = "";
+        //Data Processing Loop
         for (int i = 0; i < data.size(); i++) {
+            //Handling Unit Name
             if (i == 0) {
                 unitName = data.get(0);
-            } else if (i >= 2) {
+                
+            } 
+            //Student data processing
+            else if (i >= 2) {
                 String[] values = data.get(i).split(",");
+                //checking for comments
                 if (!values[0].startsWith("#")) {
+                    //Creating and populating bstudent objects.
                     Student student = new Student();
                     student.setFirstName(values[0]);
                     student.setLastName(values[1]);
@@ -216,6 +223,7 @@ public class Main
 {
     public static void main(String[] args) {
         System.out.println("##----System For Compute Statistic of Students----##");
+        System.out.println("##************************************************##");
         Scanner sc = new Scanner(System.in);
         System.out.println("\nPlease enter the file name:");
         String fileName = sc.next();
@@ -224,7 +232,7 @@ public class Main
         List<String> values = new ArrayList<>();
         String row;
         try {
-            File csvFile = new File("D:\\" + fileName);
+            File csvFile = new File("" + fileName);
             FileReader fileReader = new FileReader(csvFile);
             BufferedReader br = new BufferedReader(fileReader);
 
@@ -254,7 +262,7 @@ public class Main
             while (option != 5) {
                 System.out.println(
                     "\n----------------------Welcome to the Student marks management System-------------------------");
-                System.out.println("-------------------------***************************----------------------------");
+                System.out.println("-------------------------***************************------------------------------------");
 
                 System.out.println("\n1. Read students data");
                 System.out.println("2. Calculate the total marks for each student");
