@@ -132,6 +132,26 @@ class StudentsStatistics
 public class Main
 {
     public static void main(String[] args) {
+        System.out.println("##----System For Compute Statistic of Students----##");
+        Scanner sc = new Scanner(System.in);
+        System.out.println("\nPlease enter the file name:");
+        String fileName = sc.next();
+        StudentsStatistics obj = new StudentsStatistics();
+
+        List<String> values = new ArrayList<>();
+        String row;
+        try {
+            File csvFile = new File("D:\\" + fileName);
+            FileReader fileReader = new FileReader(csvFile);
+            BufferedReader br = new BufferedReader(fileReader);
+
+            while ((row = br.readLine()) != null) {
+                values.add(row);
+            }
+
+        } catch (IOException e) {
+            System.err.println("Error reading the file: " + e.getMessage());
+        }
 
     }
 
