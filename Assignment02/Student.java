@@ -198,6 +198,9 @@ class StudentsStatistics
                     case 1:
                         obj.readFromFile(studentsList);
                         continue;
+                    case 2:
+                        obj.calculateTotalMarks(studentsList);
+                        continue;
 
                 }
             }
