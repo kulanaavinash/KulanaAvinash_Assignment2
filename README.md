@@ -18,8 +18,6 @@ Develop a simple program to compute statistics of students' marks in an assignme
 
 ![](Output/Capture3.JPG)
 
-<h1>Calculate the total marks for each student</h1>
-
 <h1>List the students with total marks less than a certain threshold</h1>
 
 ![](Output/6.JPG)
