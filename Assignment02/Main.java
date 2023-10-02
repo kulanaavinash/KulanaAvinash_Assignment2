@@ -22,6 +22,66 @@ class Student
     private double a1;
     private double a2;
     private double a3;
+
+    // Implement Getters and setters for student attributes
+    public String getFirstName() {
+        return firstName;
+    }
+
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
+    }
+
+    public String getLastName() {
+        return lastName;
+    }
+
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
+    }
+
+    public String getUnitName() {
+        return unitName;
+    }
+
+    public void setUnitName(String unitName) {
+        this.unitName = unitName;
+    }
+
+    public String getStudentId() {
+        return studentId;
+    }
+
+    public void setStudentId(String studentId) {
+        this.studentId = studentId;
+    }
+
+    public double getA1() {
+        return a1;
+
+    }
+
+    public void setA1(double a1) {
+        this.a1 = a1;
+    }
+
+    public double getA2() {
+        return a2;
+
+    }
+
+    public void setA2(double a2) {
+        this.a2 = a2;
+    }
+
+    public double getA3() {
+        return a3;
+
+    }
+
+    public void setA3(double a3) {
+        this.a3 = a3;
+    }
 }
 class StudentsStatistics
 {
