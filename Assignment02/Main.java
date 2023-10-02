@@ -287,6 +287,7 @@ public class Main
 
                 }
             }
+            //Input Validation Handling
         } catch (InputMismatchException e) {
             System.out.println("Invalid option entered.");
             System.out.println("Please select an option from the menu and enter a number from 1 to 5.");
