@@ -201,6 +201,11 @@ class StudentsStatistics
                     case 2:
                         obj.calculateTotalMarks(studentsList);
                         continue;
+                    case 3:
+                        System.out.print("Enter the threshold value: ");
+                        double threshold = sc.nextDouble();
+                        obj.listStudentsBelowThreshold(threshold, studentsList);
+                        continue;
 
                 }
             }
